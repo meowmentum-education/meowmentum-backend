@@ -1,24 +1,25 @@
 # 🐾 Meowmentum – Backend API
 
-Welcome to the **Meowmentum Backend API**, the central engine of an AI-enhanced English language learning platform. Built with **C# and ASP.NET Core (.NET 8)**, this backend manages user authentication, vocabulary data, learning analytics, and API endpoints for future AI integration.
+Welcome to the **Meowmentum Backend API**, the central engine behind our AI-powered English–Vietnamese language learning platform.  
+Built with **C# and ASP.NET Core (.NET 8)**, this backend handles user authentication, vocabulary content management, learning progress tracking, and provides APIs for future AI and mobile/web integrations.
 
-> 🔗 See the full project vision: [Meowmentum Overview](https://github.com/meowmentum-education)
+> 🔗 Full project ecosystem: [Meowmentum Overview](https://github.com/meowmentum-education)
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer          | Technologies                     |
-|----------------|----------------------------------|
-| Framework      | ASP.NET Core (.NET 8)            |
-| Language       | C# 11                            |
-| API Type       | RESTful APIs                     |
-| ORM            | Entity Framework Core 8          |
-| Database       | Microsoft SQL Server             |
-| Auth           | JWT Bearer Authentication        |
-| Docs           | Swagger UI (Swashbuckle.AspNetCore) |
-| DevOps         | GitHub Actions                   |
-| Containerization | Docker (planned)              |
+| Layer            | Technologies                         |
+|------------------|--------------------------------------|
+| Framework        | ASP.NET Core (.NET 8)                |
+| Language         | C# 11                                |
+| API Architecture | RESTful APIs                         |
+| ORM              | Entity Framework Core 8              |
+| Database         | Microsoft SQL Server                 |
+| Authentication   | JWT Bearer Token                     |
+| API Docs         | Swagger UI (Swashbuckle.AspNetCore)  |
+| CI/CD            | GitHub Actions                       |
+| Containerization | Docker (planned)                     |
 
 ---
 
@@ -32,9 +33,9 @@ Welcome to the **Meowmentum Backend API**, the central engine of an AI-enhanced 
 ├── Services/          # Business logic
 ├── Repositories/      # Data access layer
 ├── Middleware/        # Auth, error handling, logging
-├── Config/            # Configuration files and constants
-├── Program.cs         # Entry point using top-level statements
-└── appsettings.json   # Environment settings
+├── Config/            # Constants & custom settings
+├── Program.cs         # Main entry point
+└── appsettings.json   # Environment configurations
 ```
 
 ---
@@ -44,53 +45,55 @@ Welcome to the **Meowmentum Backend API**, the central engine of an AI-enhanced 
 ### 📦 Prerequisites
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-- SQL Server (LocalDB, Docker, or cloud)
-- Visual Studio 2022+ or Visual Studio Code
+- SQL Server (LocalDB / Docker / Cloud)
+- Visual Studio 2022+ or VS Code with C# extensions
 
-### 🔧 Installation
+### 🔧 Setup
 
 1. **Clone the repository**
 
-   ```bash
-   git clone https://github.com/trandaine/meowmentum-backend.git
-   cd meowmentum-backend
-   ```
+```bash
+git clone https://github.com/trandaine/meowmentum-backend.git
+cd meowmentum-backend
+```
 
-2. **Configure connection string**
+2. **Configure the database connection**
 
-   In `appsettings.json` or `appsettings.Development.json`:
+In `appsettings.Development.json`:
 
-   ```json
-   "ConnectionStrings": {
-     "DefaultConnection": "Server=localhost;Database=MeowmentumDb;Trusted_Connection=True;"
-   }
-   ```
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Server=localhost;Database=MeowmentumDb;Trusted_Connection=True;"
+}
+```
 
-3. **Run EF Core migrations**
+3. **Apply EF Core migrations**
 
-   ```bash
-   dotnet ef database update
-   ```
+```bash
+dotnet ef database update
+```
 
 4. **Run the API**
 
-   ```bash
-   dotnet run
-   ```
+```bash
+dotnet run
+```
 
-   Access the API at:
-   - `https://localhost:5001`
-   - `http://localhost:5000`
+Visit the API:
 
-5. **API Docs (Swagger)**  
-   Navigate to: `https://localhost:5001/swagger`
+- `https://localhost:5001`
+- `http://localhost:5000`
+
+Swagger UI:
+
+- `https://localhost:5001/swagger`
 
 ---
 
 ## 🔐 Authentication
 
-- Token-based authentication via **JWT**.
-- Example header:
+- Implements **JWT Bearer Authentication**
+- Add this header to authorized requests:
 
 ```http
 Authorization: Bearer {your_token_here}
@@ -100,19 +103,19 @@ Authorization: Bearer {your_token_here}
 
 ## 🔑 Key Features
 
-- ✅ User Registration & Login (with password hashing & JWT)
-- 📚 Vocabulary Management by Topics & CEFR Level
-- 📈 Progress Tracking & Quiz History
-- 🧠 AI Module Hooks (for integration with Django NLP microservice)
-- 🛡️ Admin-level Content Management (WIP)
+- 👤 Secure Registration & Login (bcrypt + JWT)
+- 📚 Vocabulary & Topic Management (CRUD)
+- 📈 Learning Progress & Quiz Results Tracking
+- 🧠 AI Endpoint Hooks (for Django NLP microservice)
+- 🛡️ Admin Content Panel (WIP)
 
 ---
 
 ## 🧪 Testing
 
-Tests are placed under the `/Tests` directory (if configured).
+Tests (if configured) are under `/Tests`
 
-Run all tests:
+To run tests:
 
 ```bash
 dotnet test
@@ -122,24 +125,24 @@ dotnet test
 
 ## 📦 Deployment
 
-- CI/CD with GitHub Actions (`.github/workflows`)
-- Dockerfile support (in progress)
-- Environment variables recommended for production secrets
+- CI/CD via GitHub Actions
+- Docker support in progress (`Dockerfile`)
+- Use environment variables for production secrets
 
 ---
 
 ## 🤝 Contributing
 
-1. Fork this repo
-2. Create your feature branch
-3. Commit and push
+1. Fork this repository
+2. Create a new branch
+3. Make changes and commit
 4. Open a pull request 🚀
 
-Please follow our coding standards and API conventions.
+Please follow our clean architecture and REST API conventions.
 
 ---
 
-## 📬 Maintainers
+## 📬 Maintainer
 
 - 👤 **Trần Quang Đại** – Backend Engineer  
   📧 `daitqgcs220714@fpt.edu.vn`  
